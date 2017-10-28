@@ -1,0 +1,52 @@
+
+
+h1,h2,h3,h4,h5,p a:hover{
+  text-decoration:none;
+  color:#bf9b30;
+}
+
+ul.no-type{
+  margin-left: -40px;
+}
+
+li{
+    list-style-type:none;
+  }
+
+ li a:hover{
+    text-decoration: none;
+    color:#bf9b30;
+  }
+
+  .fa:hover{
+    color:#bf9b30;
+  }
+
+.capitalize{
+  text-transform:capitalize;
+}
+
+.widget{
+  background-color: #FFF;
+  border:1px solid #E6E6E6;
+  border-width:2px;
+}
+
+.widget-profile{
+  padding: 15px;
+}
+
+.widget-update{
+  padding:15px;
+  margin-bottom:15px;
+}
+
+.profile-img{
+  width: 130px;
+  height:130px;
+  margin: 10px;
+  border: 5px solid #fff;
+  border-radius:100%;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+
