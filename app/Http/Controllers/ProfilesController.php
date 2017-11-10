@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Session;
+use App\Genre;
+use App\Title;
+use App\Friendship;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -12,8 +15,12 @@ class ProfilesController extends Controller
     public function index($slug)
     {
         $user = User::where('slug', $slug)->first();
-        return view('profiles.index')
-            ->with('user', $user);
+        return view('profiles.index')->with('user', $user)
+                                     ->with('genre', Genre::all())
+                                     ->with('title', Title::orderBy('created_at', 'desc')->take(5)->get())
+                                     ->with('new_user', User::orderBy('created_at', 'desc')->take(3)->get())
+                                     ->with('friend_count', Friendship::all()->count())
+                                     ->with('title_count', Title::all()->count());
     }
 
     public function store(Request $r)
@@ -80,5 +87,15 @@ class ProfilesController extends Controller
         $user->delete();
 
         return view('welcome');
+    }
+
+
+    public function genre($id)
+    {
+        $genre = Genre::find($id);
+
+        return view('library.genre')->with('genre', $genre)
+                            ->with('title', $genre->genre)
+                            ->with('titles', Title::all());
     }
 }

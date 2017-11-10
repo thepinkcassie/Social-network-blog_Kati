@@ -258,15 +258,20 @@ Route::group(['middleware'=>'auth'],function(){
 
     ///// LIBRARY ROUTE /////
     
-
-    Route::get('/page/{slug}',[
-      'uses'=>'LibraryController@singlePage',
-      'as'=>'page.single'
-    ]);
-
     Route::get('/library',[
       'uses'=>'LibraryController@index',
       'as'=>'index'
     ]);
+
+    Route::get('/{slug}',[
+      'uses' => 'LibraryController@singlePage',
+      'as' => 'page.single'
+    ]);
+
+    Route::get('/genre/{id}', [
+      'uses' => 'ProfilesController@genre', 
+      'as' => 'genre.single'
+    ]);
+    
 
 });

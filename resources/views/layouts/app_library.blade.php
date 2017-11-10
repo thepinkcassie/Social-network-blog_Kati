@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ $title }}</title>
 
+<!-- HEAD -->
+
+<head lang="{{ app()->getLocale() }}">
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Scriblyz</title>
+
+    
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/fonts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/crumina-fonts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/normalize.css') }}">
@@ -13,15 +23,20 @@
 
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
     <!--Plugins styles-->
+    <!--Plugins styles-->
 
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/jquery.mCustomScrollbar.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/swiper.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/primary-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/magnific-popup.css') }}">
 
+
     <!--Styles for RTL-->
 
-    <!--<link rel="stylesheet" type="text/css" href="{{ asset('app/css/rtl.css') }}">-->
+    <!--<link rel="stylesheet" type="text/css" href="app/css/rtl.css">-->
+
+    <!-- Script(Font Awesome) -->
+    <script src="https://use.fontawesome.com/576af04557.js"></script>
 
     <!--External fonts-->
 
@@ -37,29 +52,28 @@
 
 </head>
 
+<!-- END HEAD -->
+
 
 <body class=" ">
 
 <div class="content-wrapper">
     
-@include('includes.header')
+    {{-- HEADER (INCLUDES NAV) --}}
+     
+@include('library.includes.header')
 
+    {{-- END  HEADER--}}
+
+    
+    
 @yield('content')
-
-<!-- Subscribe Form -->
-
-@include('includes.form')
-
-<!-- End Subscribe Form -->
-</div>
 
 
 
 <!-- Footer -->
+@include('library.includes.footer')
 
-@include('includes.footer')
-
-<!-- End Footer -->
 
 <svg style="display:none;">
     <symbol id="arrow-left" viewBox="122.9 388.2 184.3 85">
@@ -96,10 +110,25 @@
 
 </svg>
 
-<!-- Overlay Search -->
-@include('includes.search')
+{{-- Overlay Search --}}
 
-<!-- End Overlay Search -->
+<div class="overlay_search">
+    <div class="container">
+        <div class="row">
+            <div class="form_search-wrap">
+                <form>
+                    <input class="overlay_search-input" placeholder="Type and hit Enter..." type="text">
+                    <a href="#" class="overlay_search-close">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- End Overlay Search --}}
 
 <!-- JS Script -->
 
@@ -108,19 +137,20 @@
 <script src="{{ asset('app/js/swiper.jquery.min.js') }}"></script>
 <script src="{{ asset('app/js/theme-plugins.js') }}"></script>
 <script src="{{ asset('app/js/main.js') }}"></script>
+<script src="{{ asset('app/js/form-actions.js') }}"></script>
 
 <script src="{{ asset('js/toastr.min.js') }}"></script>
+
 
 <script src="{{ asset('app/js/velocity.min.js') }}"></script>
 <script src="{{ asset('app/js/ScrollMagic.min.js') }}"></script>
 <script src="{{ asset('app/js/animation.velocity.min.js') }}"></script>
- <script>
-        @if(Session::has('subscribed'))
-            toastr.success("{{ Session::get('subscribed') }}")
-        @endif
-    </script>
 
 <!-- ...end JS Script -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-587d79f7e064cbd5"></script> 
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56f5f7369161c200"></script>
+<!-- end addthis -->
+
 </body>
 </html>

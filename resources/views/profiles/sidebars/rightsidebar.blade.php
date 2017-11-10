@@ -8,36 +8,13 @@
 
       <div class="media-body">
           <ul class="nav nav-list text-center">
-
+       @foreach($title as $title)
             <li class="active">
               <a href="#">
-                <i class="fa fa-md fa-bolt"> Story 1-love</i>
+                <i class="fa fa-md fa-bolt"> {{$title->name}}</i>
               </a>
             </li>
-
-            <li>
-              <a href="#">
-                <i class="fa fa-md fa-bolt"> Story 2-action</i>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="fa fa-md fa-bolt"> Story 3-fanfiction</i>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="fa fa-md fa-bolt"> Story 4-mystery</i>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="fa fa-md fa-bolt"> Story 5-horror</i>
-              </a>
-            </li>
+        @endforeach
 
           </ul>
 

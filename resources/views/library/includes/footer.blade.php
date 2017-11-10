@@ -1,0 +1,1 @@
+{{--use footer from blogify theme purchase--}}

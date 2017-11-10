@@ -18,7 +18,7 @@
                             </span>
                         </a>
 
-                         <!-- Left Side Of Navbar -->
+                         {{-- Left Side Of Navbar --}}
                         <ul class="primary-menu-menu" style="overflow: hidden;">
                            @if(Auth::check())
                             <li>
@@ -53,7 +53,7 @@
 
                         
                         </ul>
-                        <!-- END LEFT SIDE OF NAV BAR -->
+                        {{-- END LEFT SIDE OF NAV BAR --}}
 
                     </nav>
                     <ul class="nav-add">
@@ -65,9 +65,7 @@
                             </a>
                             @endif
                         </li>
-                        <!-- END Search -->
-                        
-                        
+                        <!-- END Search --> 
                     </ul>
                 </div>
         </div>
